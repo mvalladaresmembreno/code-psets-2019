@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for pe in transactions %}
+            <tr>
+                <td>{{pe.symbol}}</td>
+                <td>{{pe.symbol}}</td>
+                <td>{{pe.shares}}</td>
+                <td>{{pe.price}}</td>
+                <td>{{pe.total|usd}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4" text-align="left">CASH</td>
+                <td>{{ cash }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ stonks }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="col">
+        <img src="/static/img/maxresdefault.jpg" alt="stonks">
+    </div>
+{% endblock %}
